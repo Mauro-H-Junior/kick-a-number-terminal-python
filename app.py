@@ -1,6 +1,17 @@
 import random
 import time
 
+def read_is_numeric(msg_value):
+
+    while True:
+        verify_number = str(input(msg_value))
+        if verify_number.isnumeric():
+            value = int(verify_number)
+            break
+        else:
+            print(' ***** OPS, ONLY NUMBERS ARE ALLOWED ***** ')
+    return value
+
 def main_title():
     print('-'*80)
     print('                   ******* WELCOME TO THE LUCK APP *******')
@@ -11,8 +22,8 @@ def main_title():
 def verify_random_number():
     while True:
 
-        number_user = int(input('CHOOSE A NUMBER from 1 to 100:'))
-
+        number_user = read_is_numeric('CHOOSE A NUMBER from 1 to 100:')
+        
         if number_user == random_number:
             print('-'*80)
             print('****** CONGRATULATIONS, this is the correct number!! The App has been encerred ******')
@@ -37,6 +48,8 @@ def check_app_execution():
     return yes_or_no.lower() == 'yes'
 
 # ----------------------------------------------------------------------------
+
+# MAIN PROGRAM
 
 while True:
     main_title()
